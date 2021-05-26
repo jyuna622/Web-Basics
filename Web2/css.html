@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <style>
+    div {
+      background: yellow;
+    }
+
+    .bg_blue {
+      background: url("iu.jpg");
+    }
+
+    .my_text {
+      color: aqua;
+    }
+
+    #text1 {
+      color: red;
+    }
+
+    /* div중 2번째에만 적용 */
+    div:nth-child(2) {
+      background: pink;
+    }
+
+    /* div:nth-last-child(2) {
+      background: purple;
+    } */
+
+    #block {
+      display: block;
+      height: 20px;
+    }
+
+    #inline {
+      display: inline;
+      width: 500px;
+    }
+
+    #inline-block {
+      display: inline-block;
+      width: 200px;
+      height: 20px;
+    }
+
+    #none {
+      display: none;
+    }
+
+    .text-color {
+      color: red;
+    }
+
+    .text-align-right {
+      text-align: end;
+    }
+  </style>
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+  <div style="background: red;">Hello World</div>
+  <div>Hello World</div>
+  <div>Hello World</div>
+  <h1>Hello World</h1>
+  <div class="bg_blue">Hello World</div>
+  <div class="bg_blue my_text">Hello World</div>
+  <div id="text1">Hello World</div>
+  <h1>Display</h1>
+  <div id="block">block</div>
+  <div id="inline">inline</div>
+  <div id="inline-block">inline-block</div>
+  <!-- div#none -->
+  <div id="none">none</div>
+
+  <h1>Div와 Span</h1>
+  <div>
+    <span style="background: red;">span1</span>
+    <span style="background: green;">span2</span>
+    <span style="background: blue;">span3</span>
+  </div>
+
+  <h1>text</h1>
+  <div class="text-color text-align-right">color</div>
+</body>
+
+</html>
