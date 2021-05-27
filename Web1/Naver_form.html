@@ -31,6 +31,9 @@
             align: center;
             background: #f5f6f7;
         }
+        .dobcontainer {
+            float: left;
+        }
         #dob {
             width: 130px;
             padding: 12px 20px;
@@ -96,24 +99,26 @@
         <label for="name"><b>이름</b></label><br>
         <input type="text" id="name" name="name"><br>
 
-        <label for="dob"><b>생년월일</b></label><br>
-        <input type="number" id="dob" name="dob" min="1900" max="2030"  maxlength="4"  placeholder="년 (4자)">
-        <select id="dob" name="dob">
-            <option value='월' selected> 월 </option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-            <option value='8'>8</option>
-            <option value='9'>9</option>
-            <option value='10'>10</option>
-            <option value='11'>11</option>
-            <option value='12'>12</option>
-        </select>
-        <input type="number" id="dob" name="dob" min="1" max="31" maxlength="2" placeholder="일"><br>
+        <div class="dobcontainer">
+            <label for="dob"><b>생년월일</b></label><br>
+            <input type="number" id="dob" name="dob" min="1900" max="2030"  maxlength="4"  placeholder="년 (4자)">
+            <select id="dob" name="dob">
+                <option value='월' selected> 월 </option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+                <option value='8'>8</option>
+                <option value='9'>9</option>
+                <option value='10'>10</option>
+                <option value='11'>11</option>
+                <option value='12'>12</option>
+            </select>
+            <input type="number" id="dob" name="dob" min="1" max="31" maxlength="2" placeholder="일"><br>
+        </div>
 
         <label for="sex"><b>성별</b></label><br>
 			<select id="sex" name="sex">

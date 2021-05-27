@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web4_P2</title>
+</head>
+<body>
+    <script>
+        while(true){
+            var num = prompt("숫자를 입력해주세요.", "1이상 100이하의 숫자를 입력해주세요");
+
+            if (num > 100 || num == 0) {
+                prompt("1이상 100이하의 숫자를 입력해주세요", "");
+            } else {
+                console.log("입력한 숫자 : " + num);
+                alert("완료되었습니다. Console창을 확인해 주세요.");
+                document.write("<b>실습1 성공!</b> <br><br>" + "입력한 숫자 : " + num + "<br><br>");
+                document.write(num + "부터 100까지의 숫자 차례로 찍기 : <br><br>");
+                for (var i=num; i <=100; i++){
+                    console.log(i);
+                    document.write(i + "<br>");            
+                }
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

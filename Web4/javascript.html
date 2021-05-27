@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script>
+    var i = 10; // 변수
+    var str = "hello";
+    var isDone = false;
+
+    var MY_AGE = 10;  // 상수
+
+    let j = 10;
+    const a = 10;
+
+    i = "hello";
+
+    console.log(i);
+
+    //  스크립트 태그가 앞에 있기 때문에 여기에 alert를 두면 그게 먼저 실행됨
+    // 자바 : 타입 확인할때 =instanceOf
+    // 자바 스크립트 : 타입 확인할때  typeOf
+
+    function myFunction() {
+      alert('click');
+    }
+
+    function test(i) {
+      console.log(i);
+      return 0;
+    }
+
+    function getName() {
+      let id = document.getElementById("name");
+      id.innerHTML = "<b>지유나</b>";
+      console.log(id);
+    }
+
+    function getClass() {
+      let classes = document.getElementsByClassName("my-class");
+
+      let first = classes[0];
+      let second = classes[1];
+
+      first.innerText = "<b>바꼈나???</b>";
+
+      second.style.color = "yellow";
+    }
+
+    function onMouseOver() {
+      console.log('onMouseOver');
+    }
+
+    function onMouseOut() {
+      console.log('onMouseOut');
+    }
+
+    function onLoad() {
+      console.log('onLoad');
+    }
+  </script>
+  <style>
+    .my-class {
+      background: red;
+    }
+  </style>
+</head>
+
+<body onload="onLoad()">
+  <!-- onclick 모든 버튼에 가능 온키업/온키다운 합친게 온클릭-->
+  <!-- javascript: 생략가능 -->
+  <div class="my-class" onclick="alert('clicked')">여기를 눌러주세요!!</div>
+  <div class="my-class" onclick="myFunction()">여기를 눌러주세요!!</div>
+  <button onclick="alert(test(10))">test 함수</button>
+
+  <div id="name">이름 : </div>
+  <button onclick="getName()">이름 가져오기</button>
+
+  <button onclick="getClass()">클래스 가져오기</button>
+
+  <div onmouseover="onMouseOver()" onmouseout="onMouseOut()" style="width: 100px; height: 100px; background: yellow;">
+  </div>
+
+  <script>
+    document.write("<h1>h1 태그</h1>");
+  </script>
+</body>
+
+</html>
