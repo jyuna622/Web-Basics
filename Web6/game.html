@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    #container {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+    }
+
+    #yuna {
+      position: absolute;
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    window.addEventListener("keydown", function (event) {
+      switch (event.code) {
+        case "KeyS":
+        case "ArrowDown":
+          // Handle "back"
+          updatePosition($("#yuna"), {
+            top: "+=100px"
+          });
+          break;
+        case "KeyW":
+        case "ArrowUp":
+          // Handle "forward"
+          updatePosition($("#yuna"), {
+            top: "-=100px"
+          });
+          break;
+        case "KeyA":
+        case "ArrowLeft":
+          updatePosition($("#yuna"), {
+            left: "-=100px"
+          });
+          break;
+        case "KeyD":
+        case "ArrowRight":
+          updatePosition($("#yuna"), {
+            left: "+=100px"
+          });
+          break;
+      }
+        document.addEventListener('mousemove', function(e) {
+          let body = document.querySelector('body');
+          let circle = document.getElementById('circle');
+          let left = e.offsetX;
+          let top = e.offsetY;
+          circle.style.left = left + 'px';
+          circle.style.top = top + 'px';
+        });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <img id="yuna" src="https://www.icegif.com/wp-content/uploads/polish-cow-icegif.gif" alt="">
+  </div>
+</body>
+
+</html>

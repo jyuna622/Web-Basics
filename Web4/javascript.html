@@ -17,10 +17,6 @@
 
     console.log(i);
 
-    //  스크립트 태그가 앞에 있기 때문에 여기에 alert를 두면 그게 먼저 실행됨
-    // 자바 : 타입 확인할때 =instanceOf
-    // 자바 스크립트 : 타입 확인할때  typeOf
-
     function myFunction() {
       alert('click');
     }
@@ -32,7 +28,7 @@
 
     function getName() {
       let id = document.getElementById("name");
-      id.innerHTML = "<b>지유나</b>";
+      id.innerHTML = "<b>오준석</b>";
       console.log(id);
     }
 
@@ -67,8 +63,6 @@
 </head>
 
 <body onload="onLoad()">
-  <!-- onclick 모든 버튼에 가능 온키업/온키다운 합친게 온클릭-->
-  <!-- javascript: 생략가능 -->
   <div class="my-class" onclick="alert('clicked')">여기를 눌러주세요!!</div>
   <div class="my-class" onclick="myFunction()">여기를 눌러주세요!!</div>
   <button onclick="alert(test(10))">test 함수</button>
