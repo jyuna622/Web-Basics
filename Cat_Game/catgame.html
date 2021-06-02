@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Space Cat Game</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #container {
+      position: absolute;
+      width: 100%;
+      height: 550px;
+      border: 1px solid black;
+      background-image: url('https://i.pinimg.com/originals/17/e0/02/17e002637e940f16af49438d16b96adb.png');
+    }
+
+    #cat {
+      position: absolute;
+      left: 50px;
+      bottom: 0px;
+      width: 150px;
+    }
+
+    #enemy {
+      position: absolute;
+      width: 150px;
+      bottom: 0px;
+      right: 50px;
+      animation: mymove 5s infinite;
+      animation-iteration-count: infinite;
+
+      /* <number> values */
+      animation-iteration-count: 3;
+      animation-iteration-count: 2.4;
+
+      /* Multiple values */
+      animation-iteration-count: 2, 0, infinite;
+    }
+
+    /* #enemy2 {
+      position: absolute;
+      width: 300px;
+      bottom: 0px;
+      right: 50px;
+      animation: mymove 5s infinite;
+      animation-iteration-count: infinite;
+    } */
+
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <img id="cat" src="cat.gif" alt="">
+    <img id="enemy" src="gugu.gif" alt="">
+    <!-- <img id="enemy2" src="dino1.gif" alt=""> -->
+  </div>
+
+  <script>
+    let isJumping = false;
+
+    // 주인공 점프
+    function jump() {
+      isJumping = true;
+      cat.animate({
+        bottom: "+=150px"
+      }).animate({
+        bottom: "-=150px"
+      }, function () {
+        isJumping = false;
+      });
+    }
+    
+    function enemyMove() {
+      $("#enemy").animate({
+        right: "120%"
+      }, 6000, function () {
+        $("#enemy").css("right", "-100px");
+      });
+    }
+
+    function deadCheck() {
+      let isDead = false;
+
+      let cat = $("#cat");
+      let enemy = $("#enemy");
+
+      let catRightX =
+        parseInt(cat.css("left").replace("px", ""))    +
+        parseInt(cat.css("width").replace("px", ""));
+
+      let enemyLeftX = parseInt(
+        enemy.css("left").replace("px", "")
+      );
+
+      if (catRightX > enemyLeftX) {  
+        isDead = true;
+      }
+
+      return isDead;
+    }
+
+    let cat = $("#cat");
+
+    // 스페이스바 누르면 점프
+    $("body").keydown(function (event) {
+      switch (event.code) {
+        case "Space":
+          // 스페이스 연타 방지
+          if (isJumping == false) {
+            jump();
+          }
+          break;
+      }
+    });  
+
+    // 대략 30frame 화면 갱신
+    setInterval(function () {
+      // 적 이동
+      enemyMove();
+
+      // 죽었는지 체크
+      if (deadCheck()) {
+        alert("FAIL");
+        console.log("CAT FAILED");
+      }
+    }, 33);
+</script>
+</body>
+</html>

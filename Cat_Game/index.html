@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마리오 게임</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #container {
+      position: absolute;
+      width: 100%;
+      height: 500px;
+      border: 1px solid black;
+    }
+
+    #mario {
+      position: absolute;
+      width: 200px;
+      bottom: 0px;
+      left: 50px;
+    }
+
+    #enemy {
+      position: absolute;
+      width: 80px;
+      bottom: 0px;
+      right: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <img id="mario" src="asset/mario.gif" alt="">
+    <img id="enemy" src="asset/gb.gif" alt="">
+  </div>
+
+  <script>
+    let isJumping = false;
+
+    // 주인공 점프
+    function jump() {
+      isJumping = true;
+      mario.animate({
+        bottom: "+=150px"
+      }).animate({
+        bottom: "-=150px"
+      }, function () {
+        isJumping = false;
+      });
+    }
+
+    // 스페이스바 누르면 점프
+    $("body").keydown(function (event) {
+      switch (event.code) {
+        case "Space":
+          // 스페이스 연타 방지
+          if (isJumping == false) {
+            jump();
+          }
+          break;
+      }
+    });
+
+    let mario = $("#mario");
+
+    setInterval(function () {
+      console.log("!!!");
+    }, 20);
+  </script>
+</body>
+
+</html>
